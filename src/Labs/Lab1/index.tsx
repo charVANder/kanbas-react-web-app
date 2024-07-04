@@ -5,7 +5,7 @@ export default function Lab1() {
         <h3>HTML Examples</h3>
         <div id="wd-h-tag">
           <h4>Heading Tags</h4>
-Text documents are often broken up into several sections and subsections. Each section is usually prefaced with a short title or heading that attempts to summarize the topic of the section it precedes. For instance this paragraph is preceded by the heading Heading Tags. The font of the section headings are usually larger and bolder than the plain text and their subsection headings. This document uses headings to introduce topics such as HTML Documents, HTML Tags, Heading Tags, etc. HTML heading tags can be used to format plain text so that it renders in a browser as large headings. There are 6 heading tags for different sizes: h1, h2, h3, h4, h5, and h6. Tag h1 is the largest heading and h6 is the smallest heading.
+          Text documents are often broken up into several sections and subsections. Each section is usually prefaced with a short title or heading that attempts to summarize the topic of the section it precedes. For instance this paragraph is preceded by the heading Heading Tags. The font of the section headings are usually larger and bolder than the plain text and their subsection headings. This document uses headings to introduce topics such as HTML Documents, HTML Tags, Heading Tags, etc. HTML heading tags can be used to format plain text so that it renders in a browser as large headings. There are 6 heading tags for different sizes: h1, h2, h3, h4, h5, and h6. Tag h1 is the largest heading and h6 is the smallest heading.
         </div>
         <div id="wd-p-tag">
           <h4>Paragraph Tag</h4>
@@ -217,8 +217,53 @@ tag to tell browsers to render the gaps.
             <input type="checkbox" name="check-genre" id="wd-chkbox-fantasy"/>
             <label htmlFor="wd-chkbox-fantasy">Fantasy</label>
 
+            <h4 id="wd-dropdowns">Dropdowns</h4>
+            <h5>Select one</h5>
+            <label htmlFor="wd-select-one-genre"> Favorite movie genre: </label><br/>
+            <select id="wd-select-one-genre">
+              <option value="COMEDY">Comedy</option>
+              <option value="DRAMA">Drama</option>
+              <option selected value="SCIFI">
+                  Science Fiction</option>
+              <option value="FANTASY">Fantasy</option>
+            </select>
+            <h5>Select many</h5>
+            <label htmlFor="wd-select-many-genre"> Favorite movie genres: </label><br/>
+            <select id="wd-select-many-genre" multiple>
+              <option selected value="COMEDY">Comedy</option>
+              <option value="DRAMA">Drama</option>
+              <option selected value="SCIFI">
+                  Science Fiction</option>
+              <option value="FANTASY">Fantasy</option>
+            </select>
+
+            <h4>Other HTML field types</h4>
+            <label htmlFor="wd-text-fields-email"> Email: </label>
+            <input type="email"
+                  placeholder="jdoe@somewhere.com"
+                  id="wd-text-fields-email"/><br/>
+            <label htmlFor="wd-text-fields-salary-start"> Starting salary:
+            </label>
+            <input type="number"
+                  id="wd-text-fields-salary-start"
+                  placeholder="1000"
+                  value="100000"/><br/>
+            <label htmlFor="wd-text-fields-rating"> Rating: </label>
+            <input type="range" id="wd-text-fields-rating"
+                  placeholder="Doe"
+                  max="5"
+                  value="4"/><br/>
+            <label htmlFor="wd-text-fields-dob"> Date of birth: </label>
+            <input type="date"
+                  id="wd-text-fields-dob"
+                  value="2000-01-21"/><br/>
           </form>
         </div>
+        <h4>Anchor tags</h4>
+        Please <a id="wd-lipsum" href="https://www.lipsum.com" target="blank">click here</a>
+        to get dummy text<br/>
+        Please <a id="wd-github" href="https://github.com/charVANder/kanbas-react-web-app" target="blank">click here</a>
+        to jump to Van's GitHub repository<br/>
 
       </div>
     );
