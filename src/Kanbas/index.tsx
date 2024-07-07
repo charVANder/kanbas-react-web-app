@@ -22,6 +22,10 @@ export default function Kanbas() {
             </Routes>
           </td>
         </tr>
+        Back to landing (Labs) page{" "}
+        <a id="wd-a" href="#/Labs">
+          here!
+        </a>
       </table>
     </div>
   );
