@@ -41,7 +41,7 @@ export default function TOC() {
           Kanbas
         </a>
       </li>
-      <li>
+      {/* <li>
         <a
           id="wd-github"
           href="https://github.com/charVANder/kanbas-react-web-app"
@@ -49,7 +49,7 @@ export default function TOC() {
         >
           GitHub
         </a>
-      </li>
+      </li> */}
     </ul>
   );
 }
