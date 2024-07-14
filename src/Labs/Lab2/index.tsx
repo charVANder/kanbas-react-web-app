@@ -21,7 +21,7 @@ import BootstrapNavigation from "./BootstrapNavigation";
 
 export default function Lab2() {
   return (
-    <div className="container">
+    <div className="container" id="wd-lab2">
       <h2>Lab 2 - Cascading Style Sheets</h2>
       <h3>Styling with the STYLE attribute</h3>
       {/* <p style={{ backgroundColor: "blue", color: "white" }}> */}

@@ -9,7 +9,7 @@ export default function Labs() {
     <div id="wd-labs">
       <h1>Evangeline Kim, Section 01</h1>
       <h1>Labs</h1>
-      <h2>Table of Contents</h2>
+      {/* <h2>Table of Contents</h2> */}
       <TOC />
       <Routes>
         <Route path="/" element={<Navigate to="Labs" />} />
