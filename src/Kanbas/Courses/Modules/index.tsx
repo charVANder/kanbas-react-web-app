@@ -6,7 +6,7 @@ import { BsGripVertical } from "react-icons/bs";
 export default function Modules() {
   return (
     <div>
-      <div id="wd-modules">
+      <div id="wd-modules"> 
         <ModulesControls />
         <br />
         <br />

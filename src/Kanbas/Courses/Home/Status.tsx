@@ -1,7 +1,12 @@
 import { MdDoNotDisturbAlt } from "react-icons/md";
 import { FaCheckCircle } from "react-icons/fa";
+import { FaBell } from "react-icons/fa6";
 import { BiImport } from "react-icons/bi";
 import { LiaFileImportSolid } from "react-icons/lia";
+import { IoMdHome } from "react-icons/io";
+import { RiBarChart2Fill } from "react-icons/ri";
+import { BsMegaphone } from "react-icons/bs";
+
 
 export default function CourseStatus() {
   return (
@@ -32,27 +37,27 @@ export default function CourseStatus() {
       </button>
 
       <button className="btn btn-lg btn-secondary w-100 mt-1 text-start">
-        <LiaFileImportSolid className="me-2 fs-5" />
+        <IoMdHome className="me-2 fs-5" />
         Choose Home Page
       </button>
 
       <button className="btn btn-lg btn-secondary w-100 mt-1 text-start">
-        <LiaFileImportSolid className="me-2 fs-5" />
+        <RiBarChart2Fill className="me-2 fs-5" />
         View Course Stream
       </button>
 
       <button className="btn btn-lg btn-secondary w-100 mt-1 text-start">
-        <LiaFileImportSolid className="me-2 fs-5" />
+        <BsMegaphone className="me-2 fs-5" />
         New Announcement
       </button>
 
       <button className="btn btn-lg btn-secondary w-100 mt-1 text-start">
-        <LiaFileImportSolid className="me-2 fs-5" />
+        <RiBarChart2Fill className="me-2 fs-5" />
         New Analytics
       </button>
 
       <button className="btn btn-lg btn-secondary w-100 mt-1 text-start">
-        <LiaFileImportSolid className="me-2 fs-5" />
+        <FaBell className="me-2 fs-5" />
         View Course Notifications
       </button>
     </div>

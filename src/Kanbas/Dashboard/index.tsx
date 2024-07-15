@@ -11,12 +11,12 @@ export default function Dashboard() {
                 className="wd-dashboard-course-link text-decoration-none text-dark"
                 href="#/Kanbas/Courses/1234/Home"
               >
-                <img src="/images/reactjs.jpg" width="100%" />
+                <img src="/images/pikachu.jpg" width="100%" />
                 <div className="card-body">
                   <h5 className="wd-dashboard-course-title card-title">
-                    CS1234 React JS
+                    CS1234 Pikachu
                   </h5>
-                  <p className="card-text">Full Stack software developer</p>
+                  <p className="card-text">How to Train Your Pikachu</p>
                   <button className="btn btn-primary"> Go </button>
                 </div>
               </a>

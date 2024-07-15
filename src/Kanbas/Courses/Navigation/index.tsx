@@ -4,8 +4,8 @@ export default function CoursesNavigation() {
   return (
     <div
       id="wd-courses-navigation"
-      className="list-group fs-5 rounded-0"
-      // className="list-group fs-5 rounded-0 position-fixed d-flex d-md-block z-2"
+      // className="list-group fs-5 rounded-0"
+      className="list-group fs-5 rounded-0 position-fixed d-flex d-none d-md-block z-2"
     >
       <a
         id="wd-course-home-link"
