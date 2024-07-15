@@ -1,7 +1,7 @@
 import { LiaFileImportSolid, LiaFileExportSolid } from "react-icons/lia";
 import { IoMdSettings } from "react-icons/io";
 import { FaSearch } from "react-icons/fa";
-
+import { FiFilter } from "react-icons/fi";
 
 export default function Grades() {
   return (
@@ -19,8 +19,6 @@ export default function Grades() {
             id="wd-export-btn"
             className="btn btn-lg btn-secondary dropdown-toggle"
             type="button"
-            data-bs-toggle="dropdown"
-            aria-expanded="false"
           >
             <LiaFileExportSolid className="position-relative me-2" />
             Export
@@ -82,19 +80,134 @@ export default function Grades() {
           </div>
         </div>
       </div>
+      <div id="wd-filter-btn" className="row">
+        <div className="col">
+          <button
+            id="wd-filters-btn"
+            className="btn btn-lg btn-secondary me-1"
+            type="button"
+          >
+            {" "}
+            <FiFilter
+              className="position-relative me-2"
+              style={{ bottom: "1px" }}
+            />
+            Apply Filters
+          </button>
+        </div>
+      </div>
+      <div
+        id="wd-grades-table"
+        className="table-responsive mt-3"
+      >
+        <table
+          id="wd-grades-table"
+          className="table table-striped table-bordered"
+        >
+          <thead>
+            <tr>
+              <th scope="col">Student Name</th>
+              <th scope="col" className="fw-normal text-center">
+                A1 SETUP
+                <br />
+                Out of 100%
+              </th>
+              <th scope="col" className="fw-normal text-center">
+                A2 HTML
+                <br />
+                Out of 100%
+              </th>
+              <th scope="col" className="fw-normal text-center">
+                A3 CSS
+                <br />
+                Out of 100%
+              </th>
+              <th scope="col" className="fw-normal text-center">
+                A4 BOOTSTRAP
+                <br />
+                Out of 100%
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th className="text-danger fw-normal">Ash Ketchum</th>
+              <td>
+                <input type="text" className="form-control" value="99.6%" />
+              </td>
+              <td>
+                <input type="text" className="form-control" value="92.7%" />
+              </td>
+              <td>
+                <input type="text" className="form-control" value="86.9%" />
+              </td>
+              <td>
+                <input type="text" className="form-control" value="94.3%" />
+              </td>
+            </tr>
+            <tr>
+              <th className="text-danger fw-normal">Brock Harrison</th>
+              <td>
+                <input type="text" className="form-control" value="98.8%" />
+              </td>
+              <td>
+                <input type="text" className="form-control" value="100%" />
+              </td>
+              <td>
+                <input type="text" className="form-control" value="100%" />
+              </td>
+              <td>
+                <input type="text" className="form-control" value="100%" />
+              </td>
+            </tr>
+            <tr>
+              <th className="text-danger fw-normal">Misty Waterflower</th>
+              <td>
+                <input type="text" className="form-control" value="100%" />
+              </td>
+              <td>
+                <input type="text" className="form-control" value="97.7%" />
+              </td>
+              <td>
+                <input type="text" className="form-control" value="98.9%" />
+              </td>
+              <td>
+                <input type="text" className="form-control" value="99.2%" />
+              </td>
+            </tr>
+            <tr>
+              <th className="text-danger fw-normal">Samuel Oak</th>
+              <td>
+                <input type="text" className="form-control" value="100%" />
+              </td>
+              <td>
+                <input type="text" className="form-control" value="100%" />
+              </td>
+              <td>
+                <input type="text" className="form-control" value="100%" />
+              </td>
+              <td>
+                <input type="text" className="form-control" value="100%" />
+              </td>
+            </tr>
+            <tr>
+              <th className="text-danger fw-normal">Gary Oak</th>
+              <td>
+                <input type="text" className="form-control" value="100%" />
+              </td>
+              <td>
+                <input type="text" className="form-control" value="100%" />
+              </td>
+              <td>
+                <input type="text" className="form-control" value="100%" />
+              </td>
+              <td>
+                <input type="text" className="form-control" value="100%" />
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 }
-
-      // <div className="d-flex align-items-center justify-content-between">
-      //   <div className="input-group">
-          // <span className="input-group-text bg-white border-end-0">
-          //   <FaSearch />
-          // </span>
-          // <input
-          //   className="form-control form-control-lg border-start-0"
-          //   type="text"
-          //   id="wd-search-assignment"
-          //   placeholder="Search..."
-          // />
-      //   </div>
