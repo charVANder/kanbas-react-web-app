@@ -12,6 +12,7 @@ export default function Dashboard() {
                 href="#/Kanbas/Courses/1234/Home"
               >
                 <img src="/images/pikachu.jpg" width="100%" />
+                {/* changed to Pikachu -- thanks for the rec Suraj! */}
                 <div className="card-body">
                   <h5 className="wd-dashboard-course-title card-title">
                     CS1234 Pikachu

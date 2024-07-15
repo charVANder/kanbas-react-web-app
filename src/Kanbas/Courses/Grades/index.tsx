@@ -5,7 +5,7 @@ import { FiFilter } from "react-icons/fi";
 
 export default function Grades() {
   return (
-    <div>
+    <div className="container">
       <div id="wd-grade-options" className="text-nowrap">
         <button
           id="wd-settings"
@@ -97,12 +97,19 @@ export default function Grades() {
         </div>
       </div>
       <div
-        id="wd-grades-table"
+        id="wd-grades-table-wrapper"
         className="table-responsive mt-3"
+        style={{
+          overflowX: "auto",
+          WebkitOverflowScrolling: "touch",
+        }}
       >
         <table
           id="wd-grades-table"
           className="table table-striped table-bordered"
+          style={{
+            minWidth: "600px"
+          }}
         >
           <thead>
             <tr>

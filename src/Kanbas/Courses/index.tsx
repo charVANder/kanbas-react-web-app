@@ -9,13 +9,13 @@ import Grades from "./Grades";
 
 export default function Courses() {
   return (
-    <div id="wd-courses">
+    <div id="wd-courses" style={{ overflowX: "hidden" }}>
       <h2 className="text-danger">
         <FaAlignJustify className="me-4 fs-4 mb-1" />
         Course 1234
       </h2>
       <hr />
-        <CoursesNavigation />
+      <CoursesNavigation />
       <div className="wd-main-content-offset m-4">
         <Routes>
           <Route path="/" element={<Navigate to="Home" />} />

@@ -17,14 +17,14 @@ export default function Labs() {
         <Route path="Lab2" element={<Lab2 />} />
         <Route path="Lab3" element={<Lab3 />} />
       </Routes>
-      GitHub main repository{" "}
+      {/* GitHub main repository{" "}
       <a
         id="wd-github"
         href="https://github.com/charVANder/kanbas-react-web-app"
         target="blank"
       >
         here
-      </a>
+      </a> */}
     </div>
   );
 }
