@@ -1,6 +1,6 @@
 export default function House() {
   const house = {
-    "bedrooms": 4,
+    bedrooms: 4,
     bathrooms: 2.5,
     squareFeet: 2000,
     address: {
@@ -12,6 +12,7 @@ export default function House() {
     },
     owners: ["Alice", "Bob"],
   };
+  console.log(house);
   return (
     <div id="wd-house">
       <h4>House</h4>
