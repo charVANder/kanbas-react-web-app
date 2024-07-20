@@ -34,6 +34,9 @@ export default function Modules() {
                     <li
                       key={lesson._id}
                       className="wd-lesson list-group-item p-3 ps-1"
+                      style={{
+                        borderLeft: "5px solid #198754",
+                      }}
                     >
                       <BsGripVertical className="me-2 fs-3" />
                       {lesson.name}
@@ -50,6 +53,7 @@ export default function Modules() {
   );
 }
 
+// OLD VERSION
 // export default function Modules() {
 //   return (
 //     <div>

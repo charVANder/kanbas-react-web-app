@@ -1,4 +1,12 @@
+import { assignments } from "../../Database";
+import { Link, useParams } from "react-router-dom";
+
 export default function AssignmentEditor() {
+  const { cid, aid } = useParams();
+  const assignment = assignments.find(
+    (assignment) => assignment._id === aid
+  );
+
   return (
     <div id="wd-assignments-editor" className="container">
       <form>
@@ -8,7 +16,7 @@ export default function AssignmentEditor() {
             type="text"
             className="form-control"
             id="wd-name"
-            placeholder="A1"
+            value={assignment?.title} //WHY CANT I GET THIS TO WORK T__T
           />
         </div>
         <div className="form-group">
@@ -225,12 +233,18 @@ export default function AssignmentEditor() {
           <div className="col-sm-3"></div>
           <div className="col-sm-9 text-end">
             <hr />
-            <button type="button" className="btn btn-secondary me-2">
+            <Link
+              to={`/Kanbas/Courses/${cid}/Assignments`}
+              className="btn btn-secondary me-2"
+            >
               Cancel
-            </button>
-            <button type="submit" className="btn btn-danger">
+            </Link>
+            <Link
+              to={`/Kanbas/Courses/${cid}/Assignments`}
+              className="btn btn-danger"
+            >
               Save
-            </button>
+            </Link>
           </div>
         </div>
       </form>

@@ -2,8 +2,26 @@ import { LiaFileImportSolid, LiaFileExportSolid } from "react-icons/lia";
 import { IoMdSettings } from "react-icons/io";
 import { FaSearch } from "react-icons/fa";
 import { FiFilter } from "react-icons/fi";
+import { Link, useParams } from "react-router-dom";
+import { assignments } from "../../Database";
+import { grades } from "../../Database";
+import { users } from "../../Database";
+import { enrollments } from "../../Database";
 
 export default function Grades() {
+  const { cid } = useParams();
+  const filteredAssignments = assignments.filter(
+    (assignment) => assignment.course === cid
+  );
+  const filteredEnrollments = enrollments.filter(
+    (enrollment) => enrollment.course === cid
+  );
+  const filteredGrades = grades.filter((grade) =>
+    filteredAssignments.some(
+      (assignment) => assignment._id === grade.assignment
+    )
+  );
+
   return (
     <div className="container">
       <div id="wd-grade-options" className="text-nowrap">
@@ -45,7 +63,6 @@ export default function Grades() {
       <br />
       <br />
       <br />
-
       <div id="wd-student-assignment-names" className="row mt-3">
         <div className="col">
           <label htmlFor="wd-student-name" className="fw-bold">
@@ -108,110 +125,49 @@ export default function Grades() {
           id="wd-grades-table"
           className="table table-striped table-bordered"
           style={{
-            minWidth: "600px"
+            minWidth: "600px",
           }}
         >
           <thead>
             <tr>
               <th scope="col">Student Name</th>
-              <th scope="col" className="fw-normal text-center">
-                A1 SETUP
-                <br />
-                Out of 100%
-              </th>
-              <th scope="col" className="fw-normal text-center">
-                A2 HTML
-                <br />
-                Out of 100%
-              </th>
-              <th scope="col" className="fw-normal text-center">
-                A3 CSS
-                <br />
-                Out of 100%
-              </th>
-              <th scope="col" className="fw-normal text-center">
-                A4 BOOTSTRAP
-                <br />
-                Out of 100%
-              </th>
+              {filteredAssignments.map((assignment) => (
+                <th scope="col" className="fw-normal text-center">
+                  {assignment.title}
+                  <br />
+                </th>
+              ))}
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <th className="text-danger fw-normal">Ash Ketchum</th>
-              <td>
-                <input type="text" className="form-control" value="99.6%" />
-              </td>
-              <td>
-                <input type="text" className="form-control" value="92.7%" />
-              </td>
-              <td>
-                <input type="text" className="form-control" value="86.9%" />
-              </td>
-              <td>
-                <input type="text" className="form-control" value="94.3%" />
-              </td>
-            </tr>
-            <tr>
-              <th className="text-danger fw-normal">Brock Harrison</th>
-              <td>
-                <input type="text" className="form-control" value="98.8%" />
-              </td>
-              <td>
-                <input type="text" className="form-control" value="100%" />
-              </td>
-              <td>
-                <input type="text" className="form-control" value="100%" />
-              </td>
-              <td>
-                <input type="text" className="form-control" value="100%" />
-              </td>
-            </tr>
-            <tr>
-              <th className="text-danger fw-normal">Misty Waterflower</th>
-              <td>
-                <input type="text" className="form-control" value="100%" />
-              </td>
-              <td>
-                <input type="text" className="form-control" value="97.7%" />
-              </td>
-              <td>
-                <input type="text" className="form-control" value="98.9%" />
-              </td>
-              <td>
-                <input type="text" className="form-control" value="99.2%" />
-              </td>
-            </tr>
-            <tr>
-              <th className="text-danger fw-normal">Samuel Oak</th>
-              <td>
-                <input type="text" className="form-control" value="100%" />
-              </td>
-              <td>
-                <input type="text" className="form-control" value="100%" />
-              </td>
-              <td>
-                <input type="text" className="form-control" value="100%" />
-              </td>
-              <td>
-                <input type="text" className="form-control" value="100%" />
-              </td>
-            </tr>
-            <tr>
-              <th className="text-danger fw-normal">Gary Oak</th>
-              <td>
-                <input type="text" className="form-control" value="100%" />
-              </td>
-              <td>
-                <input type="text" className="form-control" value="100%" />
-              </td>
-              <td>
-                <input type="text" className="form-control" value="100%" />
-              </td>
-              <td>
-                <input type="text" className="form-control" value="100%" />
-              </td>
-            </tr>
+            {filteredEnrollments.map((enrollment) => {
+              const student = users.find(
+                (user) => user._id === enrollment.user
+              );
+              return (
+                <tr key={enrollment._id}>
+                  <th className="text-danger fw-normal">
+                    {student ? `${student.firstName} ${student.lastName}` : ""}
+                  </th>
+                  {filteredAssignments.map((assignment) => {
+                    const grade = filteredGrades.find(
+                      (grade) =>
+                        grade.assignment === assignment._id &&
+                        grade.student === enrollment.user
+                    );
+                    return (
+                      <td key={assignment._id}>
+                        <input
+                          type="text"
+                          className="form-control"
+                          value={grade ? `${grade.grade}%` : "-"}
+                        />
+                      </td>
+                    );
+                  })}
+                </tr>
+              );
+            })}
           </tbody>
         </table>
       </div>
