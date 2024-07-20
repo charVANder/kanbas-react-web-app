@@ -16,7 +16,7 @@ export default function AssignmentEditor() {
           <input
             className="form-control"
             id="wd-name"
-            value={assignment?.title} //WHY CANT I GET THIS TO WORK T__T
+            value={assignment?.title}
           />
         </div>
         <div className="form-group">
@@ -191,7 +191,7 @@ export default function AssignmentEditor() {
                 type="date"
                 className="form-control mb-3"
                 id="wd-due-date"
-                value="2024-05-13"
+                value={assignment?.enddate ?? ""}
               />
               <div className="row">
                 <div className="col">
@@ -205,7 +205,7 @@ export default function AssignmentEditor() {
                     type="date"
                     className="form-control mb-3"
                     id="wd-available-from"
-                    value="2024-05-06"
+                    value={assignment?.startdate ?? ""}
                   />
                 </div>
                 <div className="col">
@@ -219,7 +219,7 @@ export default function AssignmentEditor() {
                     type="date"
                     className="form-control mb-3"
                     id="wd-available-until"
-                    value="2024-05-20"
+                    value={assignment?.enddate ?? ""}
                   />
                 </div>
               </div>
