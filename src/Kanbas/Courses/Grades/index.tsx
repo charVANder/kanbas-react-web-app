@@ -3,20 +3,17 @@ import { IoMdSettings } from "react-icons/io";
 import { FaSearch } from "react-icons/fa";
 import { FiFilter } from "react-icons/fi";
 import { Link, useParams } from "react-router-dom";
-import { assignments } from "../../Database";
-import { grades } from "../../Database";
-import { users } from "../../Database";
-import { enrollments } from "../../Database";
+import db from "../../Database"
 
 export default function Grades() {
   const { cid } = useParams();
-  const filteredAssignments = assignments.filter(
+  const filteredAssignments = db.assignments.filter(
     (assignment) => assignment.course === cid
   );
-  const filteredEnrollments = enrollments.filter(
+  const filteredEnrollments = db.enrollments.filter(
     (enrollment) => enrollment.course === cid
   );
-  const filteredGrades = grades.filter((grade) =>
+  const filteredGrades = db.grades.filter((grade) =>
     filteredAssignments.some(
       (assignment) => assignment._id === grade.assignment
     )
@@ -141,7 +138,7 @@ export default function Grades() {
           </thead>
           <tbody>
             {filteredEnrollments.map((enrollment) => {
-              const student = users.find(
+              const student = db.users.find(
                 (user) => user._id === enrollment.user
               );
               return (

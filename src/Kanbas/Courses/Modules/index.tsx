@@ -3,11 +3,11 @@ import ModuleControlButtons from "./ModuleControlButtons";
 import LessonControlButtons from "./LessonControlButtons";
 import { BsGripVertical } from "react-icons/bs";
 import { useParams } from "react-router";
-import { modules } from "../../Database";
+import db from "../../Database"
 
 export default function Modules() {
   const { cid } = useParams();
-  const courseModules = modules.filter((module) => module.course === cid);
+  const courseModules = db.modules.filter((module) => module.course === cid);
 
   return (
     <div>

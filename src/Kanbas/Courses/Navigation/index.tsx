@@ -1,6 +1,6 @@
 import "./index.css";
 import { useParams, useLocation, Link } from "react-router-dom";
-import { courses } from "../../Database";
+import db from "../../Database"
 
 const links = [
   "Home",

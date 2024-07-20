@@ -1,9 +1,10 @@
-import { assignments } from "../../Database";
+import React from "react";
+import db from "../../Database";
 import { Link, useParams } from "react-router-dom";
 
 export default function AssignmentEditor() {
-  const { cid, aid } = useParams();
-  const assignment = assignments.find(
+  const { aid, cid } = useParams();
+  const assignment = db.assignments.find(
     (assignment) => assignment._id === aid
   );
 
@@ -13,7 +14,6 @@ export default function AssignmentEditor() {
         <div id="wd-name" className="form-group">
           <label htmlFor="wd-name">Assignment Name</label>
           <input
-            type="text"
             className="form-control"
             id="wd-name"
             value={assignment?.title} //WHY CANT I GET THIS TO WORK T__T
@@ -41,8 +41,6 @@ export default function AssignmentEditor() {
             landing page.
           </p>
         </div>
-      </form>
-      <form>
         <div className="form-group row mb-3">
           <label
             htmlFor="wd-points"

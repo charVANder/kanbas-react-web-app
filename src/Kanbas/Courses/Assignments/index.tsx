@@ -5,12 +5,12 @@ import { FaSearch } from "react-icons/fa";
 import AssignmentControlButtons from "./AssignmentControlButtons";
 import { GoTriangleDown } from "react-icons/go";
 import AssignmentButtons from "./AssignmentButtons";
-import { assignments } from "../../Database";
+import db from "../../Database"
 import { Link, useParams } from "react-router-dom";
 
 export default function Assignments() {
   const { cid } = useParams();
-  const courseAssignments = assignments.filter(
+  const courseAssignments = db.assignments.filter(
     (assignment) => assignment.course === cid
   );
 
@@ -78,7 +78,7 @@ export default function Assignments() {
                   <span className="text-danger">Multiple Modules</span> |
                   <b>Not available until</b> {assignment.startdate} at 12:00am
                   | <br />
-                  <b>Due</b> ${assignment.enddate} at 11:59pm | 100pts
+                  <b>Due</b> {assignment.enddate} at 11:59pm | 100pts
                 </p>
               </div>
               <div className="ms-auto">
