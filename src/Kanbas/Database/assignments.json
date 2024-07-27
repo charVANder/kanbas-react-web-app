@@ -3,6 +3,8 @@
     "_id": "A101",
     "title": "Propulsion Assignment",
     "course": "RS101",
+    "description": "-Propulsion assignment description here-",
+    "duedate": "",
     "startdate": "2024-05-06",
     "enddate": "2024-05-13"
   },
@@ -10,6 +12,8 @@
     "_id": "A102",
     "title": "Combustion Analysis",
     "course": "RS101",
+    "description": "-Combustion analysis description here-",
+    "duedate": "",
     "startdate": "2024-05-13",
     "enddate": "2024-05-20"
   },
@@ -17,6 +21,8 @@
     "_id": "A103",
     "title": "Nozzle Design Project",
     "course": "RS101",
+    "description": "-Nozzle design project description here-",
+    "duedate": "",
     "startdate": "2024-05-20",
     "enddate": "2024-05-27"
   },
@@ -24,6 +30,8 @@
     "_id": "A201",
     "title": "Aerodynamics Quiz",
     "course": "RS102",
+    "description": "-Aerodynamics quiz description here-",
+    "duedate": "",
     "startdate": "2024-05-06",
     "enddate": "2024-05-13"
   },
@@ -31,6 +39,8 @@
     "_id": "A202",
     "title": "Flow Analysis",
     "course": "RS102",
+    "description": "-Flow analysis description here-",
+    "duedate": "",
     "startdate": "2024-05-13",
     "enddate": "2024-05-20"
   },
@@ -38,6 +48,8 @@
     "_id": "A203",
     "title": "Heating Analysis",
     "course": "RS102",
+    "description": "-Heating analysis description here-",
+    "duedate": "",
     "startdate": "2024-05-20",
     "enddate": "2024-05-27"
   },
@@ -45,6 +57,8 @@
     "_id": "A301",
     "title": "Structural Design Task",
     "course": "RS103",
+    "description": "-Structural design task description here-",
+    "duedate": "",
     "startdate": "2024-05-06",
     "enddate": "2024-05-13"
   },
@@ -52,6 +66,8 @@
     "_id": "A302",
     "title": "Orbital Calculations",
     "course": "RS103",
+    "description": "-Orbital calculations description here-",
+    "duedate": "",
     "startdate": "2024-05-13",
     "enddate": "2024-05-20"
   },
@@ -59,6 +75,8 @@
     "_id": "A303",
     "title": "Systems Engineering Exam",
     "course": "RS103",
+    "description": "-Systems engineering exam description here-",
+    "duedate": "",
     "startdate": "2024-05-20",
     "enddate": "2024-05-27"
   }
