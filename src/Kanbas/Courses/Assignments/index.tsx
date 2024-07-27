@@ -79,7 +79,7 @@ export default function Assignments() {
         {courseAssignments.map((assignment: any) => (
           <li key={assignment._id} className="list-group-item p-0 border-0">
             <div
-              className="wd-assignment list-group-item p-3 ps-1 d-flex align-items-center"
+              className="wd-assignment form-control list-group-item p-3 ps-1 d-flex align-items-center"
               style={{
                 borderLeft: "5px solid #198754",
               }}
@@ -94,9 +94,9 @@ export default function Assignments() {
                 </Link>
                 <p className="fs-6 mb-0">
                   <span className="text-danger">Multiple Modules</span> |
-                  <b>Not available until</b> {assignment.startdate} at 12:00am |{" "}
+                  <b> Available from</b> {assignment.startdate || "?"} <b>until</b> {assignment.enddate || "?"} at 12:00am |{" "}
                   <br />
-                  <b>Due</b> {assignment.enddate} at 11:59pm | 100pts
+                  <b>Due</b> {assignment.duedate || "?"} at 11:59pm | {assignment.points}pts
                 </p>
               </div>
               <div className="ms-auto">
@@ -116,7 +116,6 @@ export default function Assignments() {
         ))}
       </ul>
 
-      {/* Stuff for Deleting Assignments */}
       <div
         className="modal fade"
         id="deleteModal"

@@ -3,15 +3,6 @@ import db from "../../Database";
 
 const initialState = {
   assignments: db.assignments,
-  assignment: {
-    title: "New Assignment Title",
-    course: "1234",
-    description: "New Assignment Description",
-    points: "100",
-    duedate: "2024-12-31",
-    startdate: "",
-    enddate: "",
-  },
 };
 const assignmentsSlice = createSlice({
   name: "assignments",
@@ -30,14 +21,14 @@ const assignmentsSlice = createSlice({
       );
     },
     updateAssignment: (state, { payload: assignment }) => {
-      state.assignments = state.assignments.map((a: any) =>
-        a._id === assignment._id ? assignment : a
-      ) as any;
-    },
-    editAssignment: (state, { payload: assignmentID }) => {
-      state.assignments = state.assignments.map((a: any) =>
-        a._id === assignmentID ? { ...a, editing: true } : a
-      ) as any;
+      state.assignments = state.assignments.map((a) => {
+        console.log(a._id === assignment._id)
+        if (a._id === assignment._id) {
+          return assignment;
+        } else {
+          return a;
+        }
+      });
     },
   },
 });
@@ -45,6 +36,6 @@ export const {
   addAssignment,
   deleteAssignment,
   updateAssignment,
-  editAssignment,
 } = assignmentsSlice.actions;
 export default assignmentsSlice.reducer;
+
