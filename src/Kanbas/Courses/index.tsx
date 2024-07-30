@@ -6,11 +6,11 @@ import AssignmentEditor from "./Assignments/Editor";
 import { Navigate, Route, Routes, useParams, useLocation } from "react-router";
 import { FaAlignJustify } from "react-icons/fa";
 import Grades from "./Grades";
-import db from "../Database"
+// import db from "../Database"
 
-export default function Courses() {
+export default function Courses({ courses }: { courses: any[]; }) {
   const { cid } = useParams();
-  const course = db.courses.find((course) => course._id === cid);
+  const course = courses.find((course) => course._id === cid);
   const { pathname } = useLocation();
   return (
     <div id="wd-courses" style={{ overflowX: "hidden" }}>
