@@ -20,7 +20,6 @@ export default function Assignments() {
     (assignment: any) => assignment.course === cid
   );
   const dispatch = useDispatch();
-
   const fetchAssignments = async () => {
     const assignments = await client.findAssignmentsForCourse(cid as string);
     dispatch(setAssignments(assignments));
@@ -28,12 +27,10 @@ export default function Assignments() {
   useEffect(() => {
     fetchAssignments();
   }, [cid, dispatch]);
-
   const removeAssignment = async (aid: string) => {
     await client.deleteAssignment(aid);
     dispatch(deleteAssignment(aid));
   };
-
   const [selectedAssignment, setSelectedAssignment] = useState<any>(null);
   const handleDeleteButton = (assignment: any) => {
     setSelectedAssignment(assignment);
