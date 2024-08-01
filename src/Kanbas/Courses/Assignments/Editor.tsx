@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import {
   addAssignment,
   updateAssignment,
+  setAssignments,
 } from "../Assignments/reducer";
+import * as client from "./client";
 
 export default function AssignmentEditor() {
   const { cid, aid } = useParams();
@@ -12,18 +14,59 @@ export default function AssignmentEditor() {
   const navigate = useNavigate();
   const { assignments } = useSelector((state: any) => state.assignmentsReducer);
   const courseAssignments = assignments.filter(
-    (assignment: any) => assignment.course === cid)
-  const courseAssignment = courseAssignments.find((assignment: any) => assignment._id === aid)
+    (assignment: any) => assignment.course === cid
+  );
+  const courseAssignment = courseAssignments.find(
+    (assignment: any) => assignment._id === aid
+  );
   const [assignment, setAssignment] = useState({
-    title: courseAssignment?.title || "New Assignment Title",
+    title: "New Assignment Title",
     course: cid,
-    description: courseAssignment?.description || "New Assignment Description",
-    points: courseAssignment?.points || "100",
-    duedate: courseAssignment?.duedate || "",
-    startdate: courseAssignment?.startdate || "",
-    enddate: courseAssignment?.enddate || "",
-    _id: courseAssignment?._id || "1234"
+    description: "New Assignment Description",
+    points: "100",
+    duedate: "",
+    startdate: "",
+    enddate: "",
+    _id: "",
   });
+  const fetchAssignment = async () => {
+    const fetchedAssignments = await client.findAssignmentsForCourse(
+      cid as string
+    );
+    dispatch(setAssignments(fetchedAssignments));
+    const specificAssignment = fetchedAssignments.find(
+      (assignment: any) => assignment._id === aid
+    );
+    if (specificAssignment) {
+      setAssignment(specificAssignment);
+    } else {
+      setAssignment({
+        title: "New Assignment Title",
+        course: cid,
+        description: "New Assignment Description",
+        points: "100",
+        duedate: "",
+        startdate: "",
+        enddate: "",
+        _id: "",
+      });
+    }
+  };
+  useEffect(() => {
+    fetchAssignment();
+  }, [cid, aid, dispatch]);
+  const createAssignment = async (assignment: any) => {
+    const newAssignment = await client.createAssignment(
+      cid as string,
+      assignment
+    );
+    dispatch(addAssignment(newAssignment));
+  };
+  const saveAssignment = async (assignment: any) => {
+    const status = await client.updateAssignment(assignment);
+    dispatch(updateAssignment(assignment));
+  };
+
   return (
     <div id="wd-assignments-editor" className="container">
       <form>
@@ -261,9 +304,9 @@ export default function AssignmentEditor() {
             <button
               onClick={() => {
                 if (courseAssignment) {
-                  dispatch(updateAssignment(assignment));
+                  saveAssignment(assignment);
                 } else {
-                  dispatch(addAssignment(assignment));
+                  createAssignment(assignment);
                 }
                 navigate(`/Kanbas/Courses/${cid}/Assignments`);
               }}
