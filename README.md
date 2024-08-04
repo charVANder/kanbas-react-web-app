@@ -22,8 +22,8 @@ A remake of Canvas built on MERN stack. Main project for *CS5610: Web Developmen
 </details>
 
 ## Links
-- Netlify link: tbd
-- Back-end server: tbd
+- Website link (Netlify): tbd
+- Back-end server (Render): https://kanbas-node-server-app-w17k.onrender.com
 - Back-end repository: https://github.com/charVANder/kanbas-node-server-app
 
 ## Basic Setup
@@ -36,11 +36,6 @@ cd kanbas-react-web-app
 **Installing dependencies:**
 ```
 npm install
-```
-
-**Starting the back-end server:**
-```
-node app.js
 ```
 
 **Running the application in development mode:**
