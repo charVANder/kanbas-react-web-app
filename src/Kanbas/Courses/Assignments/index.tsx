@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { FaPlus } from "react-icons/fa6";
 import { BsGripVertical } from "react-icons/bs";
 import { FaSearch } from "react-icons/fa";
@@ -6,11 +6,12 @@ import AssignmentControlButtons from "./AssignmentControlButtons";
 import { GoTriangleDown } from "react-icons/go";
 import AssignmentButtons from "./AssignmentButtons";
 import { Link, useParams } from "react-router-dom";
-import { deleteAssignment } from "./reducer";
+import { deleteAssignment, setAssignments } from "./reducer";
 import { useDispatch, useSelector } from "react-redux";
 import { IoEllipsisVertical } from "react-icons/io5";
 import GreenCheckmark from "../Modules/GreenCheckmark";
 import { FaTrash } from "react-icons/fa";
+import * as client from "./client";
 
 export default function Assignments() {
   const { cid } = useParams();
@@ -19,13 +20,24 @@ export default function Assignments() {
     (assignment: any) => assignment.course === cid
   );
   const dispatch = useDispatch();
+  const fetchAssignments = async () => {
+    const assignments = await client.findAssignmentsForCourse(cid as string);
+    dispatch(setAssignments(assignments));
+  };
+  useEffect(() => {
+    fetchAssignments();
+  }, [cid, dispatch]);
+  const removeAssignment = async (aid: string) => {
+    await client.deleteAssignment(aid);
+    dispatch(deleteAssignment(aid));
+  };
   const [selectedAssignment, setSelectedAssignment] = useState<any>(null);
   const handleDeleteButton = (assignment: any) => {
     setSelectedAssignment(assignment);
   };
   const handleConfirmDelete = () => {
     if (selectedAssignment) {
-      dispatch(deleteAssignment(selectedAssignment._id));
+      removeAssignment(selectedAssignment._id);
       setSelectedAssignment(null);
     }
   };
@@ -94,9 +106,10 @@ export default function Assignments() {
                 </Link>
                 <p className="fs-6 mb-0">
                   <span className="text-danger">Multiple Modules</span> |
-                  <b> Available from</b> {assignment.startdate || "?"} <b>until</b> {assignment.enddate || "?"} at 12:00am |{" "}
-                  <br />
-                  <b>Due</b> {assignment.duedate || "?"} at 11:59pm | {assignment.points}pts
+                  <b> Available from</b> {assignment.startdate || "?"}{" "}
+                  <b>until</b> {assignment.enddate || "?"} at 12:00am | <br />
+                  <b>Due</b> {assignment.duedate || "?"} at 11:59pm |{" "}
+                  {assignment.points}pts
                 </p>
               </div>
               <div className="ms-auto">
