@@ -10,6 +10,7 @@ const links = [
   "Assignments",
   "Quizzes",
   "Grades",
+  "People",
 ];
 
 export default function CoursesNavigation() {
