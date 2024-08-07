@@ -14,9 +14,10 @@ A remake of Canvas built on MERN stack. Main project for *CS5610: Web Developmen
   <summary>Back End</summary>
   <ul>
     <li><a href="https://github.com/nodejs/node">Node</a> - JavaScript runtime environment.</li> 
-    <li><a href="https://github.com/expressjs/express">Express</a></li>
-    <li><a href="https://github.com/mongodb/mongo">MongoDB</a></li>
-    <li><a href="https://render.com">Render</a></li>
+    <li><a href="https://github.com/expressjs/express">Express</a> - web application framework for node</li>
+    <li><a href="https://github.com/mongodb/mongo">MongoDB</a> - NoSQL database</li>
+    <li><a href="https://github.com/cesanta/mongoose">Mongoose</a> - cross-platform web server library</li>
+    <li><a href="https://render.com">Render</a> - back-end server platform</li>
     <li><a href="https://www.typescriptlang.org/">Typescript</a></li>
   </ul>
 </details>
