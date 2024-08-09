@@ -95,8 +95,8 @@ export default function PeopleTable() {
                   to={`/Kanbas/Courses/${cid}/People/${user._id}`}
                   className="text-danger"
                 >
-                  <span className="wd-first-name">{user.firstName}</span>
-                  <span className="wd-last-name">{user.lastName}</span>
+                  <span className="wd-first-name">{user.firstName}</span>{" "}
+                  <span className="wd-last-name">{user.lastName}</span>{" "}
                 </Link>
               </td>
               <td className="wd-login-id">{user.loginId}</td>

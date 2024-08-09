@@ -26,7 +26,7 @@ export default function CoursesNavigation() {
         <Link
           key={link}
           to={`/Kanbas/Courses/${cid}/${link}`}
-          className={`list-group-item text-danger border border-0 ${
+          className={`wd-link list-group-item text-danger border border-0 ${
             location.pathname.includes(link) ? "active" : ""
           }`}
         >
@@ -36,12 +36,3 @@ export default function CoursesNavigation() {
     </div>
   );
 }
-
-//         <a
-//           href={`#/Kanbas/Courses/${cid}/${link}`}
-//           className={`list-group-item text-danger border border-0 ${
-//             location.pathname.includes(link) ? "active" : ""
-//           }`}
-//         >
-//           {link}
-//         </a>
