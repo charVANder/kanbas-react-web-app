@@ -1,3 +1,48 @@
+// import CoursesNavigation from "./Navigation";
+// import Modules from "./Modules";
+// import Home from "./Home";
+// import Assignments from "./Assignments";
+// import AssignmentEditor from "./Assignments/Editor";
+// import { Navigate, Route, Routes, useParams, useLocation } from "react-router";
+// import { FaAlignJustify } from "react-icons/fa";
+// import Grades from "./Grades";
+// import PeopleTable from "./People/Table";
+// import PeopleDetails from "./People/Details";
+// import { useState } from "react";
+// import axios from "axios";
+
+// export default function Courses({ courses }: { courses: any[]; }) {
+//   const { cid } = useParams();
+//   const course = courses.find((course) => course._id === cid);
+//   const { pathname } = useLocation();
+//   return (
+//     <div id="wd-courses" style={{ overflowX: "hidden" }}>
+//       <h2 className="text-danger">
+//         <FaAlignJustify className="me-4 fs-4 mb-1" />
+//         {course && course.name} &gt; {pathname.split("/")[4]}
+//       </h2>
+//       <hr />
+//       <CoursesNavigation />
+//       <div className="wd-main-content-offset m-4">
+//         <Routes>
+//           <Route path="/" element={<Navigate to="Home" />} />
+//           <Route path="Home" element={<Home />} />
+//           <Route path="Modules" element={<Modules />} />
+//           <Route path="Piazza" element={<h2>Piazza</h2>} />
+//           <Route path="Zoom" element={<h2>Zoom</h2>} />
+//           <Route path="Assignments" element={<Assignments />} />
+//           <Route path="Assignments/:aid" element={<AssignmentEditor />} />
+//           <Route path="Quizzes" element={<h2>Quizzes</h2>} />
+//           <Route path="Grades" element={<Grades />} />
+//           <Route path="People" element={<PeopleTable />} />
+//           <Route path="People/:uid" element={<PeopleTable />} />
+//         </Routes>
+//       </div>
+//     </div>
+//   );
+// }
+
+import React, { useState, useEffect } from "react";
 import CoursesNavigation from "./Navigation";
 import Modules from "./Modules";
 import Home from "./Home";
@@ -8,11 +53,23 @@ import { FaAlignJustify } from "react-icons/fa";
 import Grades from "./Grades";
 import PeopleTable from "./People/Table";
 import PeopleDetails from "./People/Details";
+import { fetchAllCourses } from "./client";
 
-export default function Courses({ courses }: { courses: any[]; }) {
+export default function Courses({}: { courses: any[] }) {
+  const [courses, setCourses] = useState<any[]>([]);
   const { cid } = useParams();
   const course = courses.find((course) => course._id === cid);
   const { pathname } = useLocation();
+
+  useEffect(() => {
+    const loadCourses = async () => {
+        const fetchedCourses = await fetchAllCourses();
+        setCourses(fetchedCourses);
+    };
+
+    loadCourses();
+  }, []);
+
   return (
     <div id="wd-courses" style={{ overflowX: "hidden" }}>
       <h2 className="text-danger">
@@ -33,7 +90,7 @@ export default function Courses({ courses }: { courses: any[]; }) {
           <Route path="Quizzes" element={<h2>Quizzes</h2>} />
           <Route path="Grades" element={<Grades />} />
           <Route path="People" element={<PeopleTable />} />
-          <Route path="People/:uid" element={<PeopleTable />} />
+          <Route path="People/:uid" element={<PeopleTable />} />{" "}
         </Routes>
       </div>
     </div>
